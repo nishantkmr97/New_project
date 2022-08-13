@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap"
+    rel="stylesheet">
+  <title>Mens page</title>
+  <style>
+    .container {
+      width: 70%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      font-family: "Inter", sans-serif;
+    }
+
+    .container>div {
+      padding: 20px 0px;
+    }
+
+    .container>div>img {
+      width: 50%;
+      display: block;
+      margin: auto;
+    }
+
+    .container>div>p:nth-of-type(1) {
+      font-size: 30px;
+      font-weight: 500;
+      margin: 10px 0px;
+      padding-top: 20px;
+    }
+
+    .container>div>p:nth-of-type(2) {
+      font-size: 25px;
+      color: gray;
+      margin: 10px 0px;
+    }
+
+    .container>div>p:nth-of-type(3)>span {
+      padding: 0px 6px;
+      font-size: 30px;
+    }
+
+    .container>div>p:nth-of-type(3)>span:nth-child(1) {
+      padding-left: 0px;
+      font-weight: 700;
+    }
+
+    .container>div>p:nth-of-type(3)>span:nth-child(2) {
+      color: gray;
+    }
+
+    .container>div>p:nth-of-type(3)>span:nth-child(3) {
+      color: rgb(54, 138, 54);
+      font-weight: 500;
+    }
+
+
+    /* all media queries are written here */
+
+    @media all and (max-width:900px) {
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        width: 75%;
+        gap: 50px;
+        padding: 50px 0px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+</body>
+
+</html>
+
+
+
+<script type="text/javascript">
+
+  let body = document.querySelector("body");
+
+  let container = document.createElement("div");
+  container.setAttribute("class", "container");
+  // let box = document.createElement("div");
+  let items = [{ image: 'https://assets.ajio.com/medias/sys_master/root/20220121/dr6u/61ea56dbf997dd662331014a/-473Wx593H-461433185-grey-MODEL.jpg', name: "Pause", details: "Men Cotton Long Sleeves Shrug", price: 359, mrp: "1,499", disc: "-76%" },
+  { image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSzyyOEV43mekLMgMvmorVmKlNVTli8DogBrV8sF3i-s1PeUp2caxO0mV0-IZHtqAbLqHfPNiKc3zxwqwySTXYvKKdLhfUWq3zRUC-mWThXuVFmir6YFwQv&usqp=CAE", name: "JUBINATION", details: "Men Wool  Sleeveless Sweater Pack of 1", price: 799, mrp: "1,499", disc: "-47%" }]
+
+  /* Products card section */
+  for (let i = 0; i < items.length; i++) {
+    let card = document.createElement("div");
+    let img = document.createElement("img");
+    img.setAttribute("src", items[i].image);
+    /* heading section */
+    let head = document.createElement("p");
+    head.innerText = items[i].name;
+
+
+    /* details section */
+    let details = document.createElement("p");
+    details.innerText = items[i].details;
+
+
+    /* mrp section */
+    let priceTag = document.createElement("p");
+    let price = document.createElement("span");
+    price.innerHTML = `&#8377 ${items[i].price}`;
+    let mrp = document.createElement("span");
+    let strike = document.createElement("s");
+    strike.innerText = items[i].mrp;
+    mrp.append(strike);
+    let discount = document.createElement("span");
+    discount.innerText = items[i].disc;
+    priceTag.append(price, mrp, discount);
+    card.append(img, head, details, priceTag);
+    container.append(card);
+
+  }
+  body.append(container);
+
+
+
+
+
+</script>
